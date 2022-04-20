@@ -37,7 +37,7 @@ func SendSlackMessage(msg string) {
 	jsonStr, err := json.Marshal(slackMsg)
 
 	hookUrl := settings.SystemAppConfig.SlackUrl
-	fmt.Println(string(jsonStr))
+	//fmt.Println(string(jsonStr))
 	_, err = requests.PostJson(hookUrl, string(jsonStr))
 	fmt.Println(string(jsonStr))
 	if err != nil {

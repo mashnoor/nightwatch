@@ -3,6 +3,7 @@ package core
 import (
 	"database/sql"
 	"fmt"
+	"github.com/mashnoor/nightwatch/pkg/helpers"
 	"github.com/mashnoor/nightwatch/pkg/settings"
 	"github.com/mashnoor/nightwatch/pkg/strcts"
 	"sync"
@@ -43,10 +44,10 @@ func checkLag(cluster *strcts.Cluster) {
 		logMsg := fmt.Sprintf("name = %s  log_delay = %f", cluster.ClusterName, dbResult.LogDelay)
 		settings.Log.Info(logMsg)
 
-		if dbResult.LogDelay > cluster.LogDelayThreshold {
-			_ = fmt.Sprintf("*:rocket: Night Watch*\n*Cluster name:* %s\n*Log delay:* %.2f\n*Time:* %s", cluster.ClusterName, dbResult.LogDelay, currentTimeBDTStr)
+		if dbResult.LogDelay >= cluster.LogDelayThreshold {
+			slackMsg := fmt.Sprintf("*:rocket: Night Watch*\n*Cluster name:* %s\n*Log delay:* %.2f\n*Time:* %s", cluster.ClusterName, dbResult.LogDelay, currentTimeBDTStr)
 			settings.Log.Info("Sent slack notification ", cluster.ClusterName)
-			//helpers.SendSlackMessage(slackMsg)
+			helpers.SendSlackMessage(slackMsg)
 			//settings.Log.Info(slackMsg)
 		}
 
