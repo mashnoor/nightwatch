@@ -7,5 +7,5 @@ services:
 
 
 
-slackUrl: https://hooks.slack.com/services/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
-elasticSearchUrl: http://172.17.17.44:9200
+slackUrl:
+elasticSearchUrl:
