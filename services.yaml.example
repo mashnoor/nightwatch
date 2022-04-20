@@ -1,11 +1,18 @@
-services:
-  - name: etraffic
-    kubernetesServiceName: etraffic
-    successMessage: "\"message\":\"Payment completed successfully"
-    failureMessage: failed
-    notificationInterval: 3600
+clusters:
+- clusterName:
+  dbUser:
+  dbPassword:
+  dbHost:
+  dbPort:
+  logDelayThreshold:
 
-
+- clusterName:
+  dbUser:
+  dbPassword:
+  dbHost:
+  dbPort:
+  logDelayThreshold:
 
 slackUrl:
-elasticSearchUrl:
+evaluateInterval:
+
