@@ -1,0 +1,18 @@
+clusters:
+- clusterName: fundtransfer
+  dbUser: finance
+  dbPassword: L4yDwTxnj3b5Mt9H
+  dbHost: "192.168.10.120"
+  dbPort: 5436
+  logDelayThreshold: 50.0
+
+- clusterName: cdfs
+  dbUser: finance
+  dbPassword: L4yDwTxnj3b5Mt9H
+  dbHost: "192.168.10.120"
+  dbPort: 5434
+  logDelayThreshold: 50.0
+
+slackUrl: https://hooks.slack.com/services/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
+evaluateInterval: 10
+
